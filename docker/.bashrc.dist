@@ -1,0 +1,27 @@
+export PATH="./docker/bin:../docker/bin:../../docker/bin:$PATH"
+export PROJECT_ROOT="$PWD"
+# shellcheck source=.env
+source "${PROJECT_ROOT}"/docker/.env
+
+_exec() {
+  [[ -z "$2" ]] && docker exec -it "$1" bash \
+  || docker exec -it "$1" "$2"
+}
+alias _build="docker-compose build --force-rm --pull"
+alias _ps="docker-compose ps"
+alias _run="docker-compose run --rm"
+alias _stop="docker-compose stop"
+alias _up="docker-compose up --detach --force-recreate --remove-orphans"
+alias _down="docker-compose down --remove-orphans"
+alias _no-start="docker-compose up --no-start --force-recreate --remove-orphans"
+alias _mysql="mysql --host=127.0.0.1 --user=root --default-character-set=utf8mb4"
+
+alias hadolint='docker run -ti --rm -v "$(pwd):/tmp" -w /tmp --entrypoint /bin/hadolint hadolint/hadolint:latest-debian'
+
+alias node='docker run -ti --rm --entrypoint node -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias yarn='docker run -ti --rm --entrypoint yarn -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias npm='docker run -ti --rm --entrypoint npm -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias npx='docker run -ti --rm --entrypoint npx -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias ncu='docker run -ti --rm --entrypoint ncu -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias tsc='docker run -ti --rm --entrypoint tsc -v "$(pwd):/project:delegated" -v "${PROJECT_ROOT}/docker/.volumes/npm:/root/.npm" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
+alias eslint='docker run -ti --rm --entrypoint eslint -v "$(pwd):/project:delegated" -w /project docker.pkg.github.com/tommyheavenly7/docker-node/node12:latest'
