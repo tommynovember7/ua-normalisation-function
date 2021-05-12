@@ -75,6 +75,18 @@
     [
       "BlackBerry Browser",
       "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.35+ (KHTML, like Gecko) Version/10.3.3.2205 Mobile Safari/537.35+"
+    ],
+    [
+      "Blackberry Browser",
+      "Mozilla/5.0 (BlackBerry; U; BlackBerry 9300; en) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.570 Mobile Safari/534.8+"
+    ],
+    [
+      "Blackberry Browser",
+      "BlackBerry9700/5.0.0.862 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/331"
+    ],
+    [
+      "Blackberry Browser",
+      "BlackBerry 9000: BlackBerry9000/4.6.0.65 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/102"
     ]
   ],
   "others": [
